@@ -5,15 +5,15 @@ class Circulo{
         this.posY = posY_;
         this.tam = tam_;
         this.contorno = 0;
-        this.expandir= 1;
+        this.expandir = 1;
         this.llegoAlLimite;
         this.modificarRojo = modificarElRojo;
         this.modificarVerde = modificarElVerde;
         this.modificarAzul = modificarElAzul;
         this.valorRandom = [];
-        this.valorRandom[0] =(random(0,255));
-        this.valorRandom[1] =(random(0,255));
-        this.valorRandom[2] =(random(0,255));
+        this.valorRandom[0] =(random(150,255));
+        this.valorRandom[1] =(random(150,255));
+        this.valorRandom[2] =(random(150,255));
         this.colorRojo = this.valorRandom[0];
         this.colorVerde = this.valorRandom[1];
         this.colorAzul = this.valorRandom[2];
@@ -42,6 +42,12 @@ class Circulo{
         }else{
             this.contorno = this.contorno + this.expandir; 
         }
+    }
+    
+    cambioDeColores(){
+        this.valorRandom[0] = (random(0,255));
+        this.valorRandom[1] = (random(0,255));
+        this.valorRandom[2] = (random(0,255));
     }
     
     darColor(){
