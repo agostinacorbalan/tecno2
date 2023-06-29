@@ -1,9 +1,9 @@
-let conjuntoDeCirculos;
+let conjuntoDeObras;
 
 //------CLASIFICADOR-----
 let classifier;
 let label;
-const classModel = 'https://teachablemachine.withgoogle.com/models/K7u4qibed/'; //url del modelo producido con Teachable Machine
+const classModel = 'https://teachablemachine.withgoogle.com/models/9T5fcPtbU/'; //url del modelo producido con Teachable Machine
 
 //---SONIDO CONFIG------------------------------------------------------------------------------------------------
 let AMP_MAX= 0.1;
@@ -16,12 +16,14 @@ let mic;
 let amp;
 let haySonido = false;
 
+let img;
 
 //---SETUP CONFIG-----------------------------------------------------------------------------------------------
 function setup() {
-
+  
   createCanvas(windowHeight, windowHeight);
-  this.conjuntoDeCirculos = new Conjunto();
+  img = loadImage('data/factura.jpg');
+  this.conjuntoDeObras = new Conjunto(img);
 
   classifier.classify(gotResult);
   mic = new p5.AudioIn();
@@ -31,24 +33,33 @@ function setup() {
 
 function draw() {
   background(0,200,100);
-
   //config sonido
   amp = mic.getLevel();
   haySonido = amp > AMP_MIN;
 
-  this.conjuntoDeCirculos.dibujar();
+  this.conjuntoDeObras.dibujar();
 
   if( label == 'Shh'){
-    this.conjuntoDeCirculos.expandirGrosor();
+    this.conjuntoDeObras.expandirGrosor();
   }
 
-  if (label == 'Aplauso'){
-    this.conjuntoDeCirculos.darColor();
+  if (label == 'Silbido'){
+    this.conjuntoDeObras.darColor();
+  }
+
+  if (label == 'Campanita'){
+    this.conjuntoDeObras.cambioDeColores();
   }
   
-  this.conjuntoDeCirculos.quitarColor();
+  if (label == 'Aplauso'){
+    this.conjuntoDeObras.cambiarDeEstado();
+    label = 'Ruido de fondo';
+  }
   
-  //text(label, width / 2, height / 2);
+  
+  this.conjuntoDeObras.quitarColor();
+  
+  text(label, width / 2, height / 2);
 }
 
 
