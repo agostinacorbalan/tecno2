@@ -56,10 +56,8 @@ function draw() {
     label = 'Ruido de fondo';
   }
   
-  
   this.conjuntoDeObras.quitarColor();
   
-  text(label, width / 2, height / 2);
 }
 
 
