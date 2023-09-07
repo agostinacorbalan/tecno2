@@ -1,8 +1,9 @@
-/* TP#2: "Guardian Garden"
-   Corbalan, Agostina -91301/2
-   Sosa, Camila -
-   Alonso, Mayra -
-   Rodas, Juan -
+/*
+   TP#2: "Guardian Garden"
+   Corbalan, Agostina 
+   Sosa, Camila 
+   Alonso, Mayra 
+   Rodas, Juan 
 */
 import fisica.*;
 
@@ -220,7 +221,7 @@ void pantallaGanar() {
   fill(0, 255, 0);
   textSize(30);
   textAlign(CENTER, CENTER);
-  text("¡Ganaste! \n Sos un experto en calabazas magicas :)", width / 2, height / 2 - 50);
+  text("¡Ganaste!:)", width / 2, height / 2 - 50);
   textSize(20);
   text("Presiona 'R' para reiniciar", width / 2, height / 2 + 50);
 }
